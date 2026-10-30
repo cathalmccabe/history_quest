@@ -64,3 +64,14 @@ The built-in question bank lives in `questions.js`. Each card contains an ID, ca
 3. Add automated browser tests on Safari/WebKit, including background timer handling.
 4. Add built-in question overrides, safer data import validation and backup merge.
 5. Improve mastery scheduling with a full spaced-repetition model and clear review-due counts.
+
+
+## Version 2 updates
+
+- All 105 built-in question prompts have been rewritten for clearer English.
+- Skip Question ends the current card, shows its answer, and awards zero points. Skips are tracked separately from incorrect answers.
+- Each built-in event has a local illustrated SVG pictogram, shown on the answer side of Play and Study cards and in the Timeline. These are generated icons, **not scraped historical photographs**.
+- Settings now includes **Export questions CSV** and **Import questions CSV**. Export opens in Excel or Notepad++. Save changes as UTF-8 CSV. Import **adds new cards only**, ignoring duplicate IDs or identical question/date combinations. It does not update existing built-in cards. For editing built-in questions, edit `questions.js` and redeploy.
+- The included `history-quest-questions.csv` is an editable copy of the built-in bank. Importing it unchanged will add nothing because those IDs already exist.
+- JSON backup/restore is separate from question CSV. Export a JSON backup before making major changes.
+- To update an existing Cloudflare Pages deployment, upload the new contents of the `history-quest` folder to the **same project and address**. The service worker cache is now version 2.
